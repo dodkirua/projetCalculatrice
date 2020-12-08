@@ -297,10 +297,10 @@ document.getElementById("negative").addEventListener("click", function (){
 document.getElementById("result").addEventListener("click", function (){
     saveVal();
     inputVisual ();
-    tmp = result(val);
+    tmp = (result(val).toFixed(6));
     screen.innerHTML = tmp;
     val = [null];
-    token = 0;
+    token = 1;
 });
 
 document.getElementById("parenthesisOpen").addEventListener("click", function (){
