@@ -304,18 +304,26 @@ document.getElementById("result").addEventListener("click", function (){
 });
 
 document.getElementById("parenthesisOpen").addEventListener("click", function (){
+
     if (screen.innerHTML === ""){
-     val.push("(");
+        if (val[0] === null) {
+            val[0] = "(";
+        }
+        else {
+            val.push("(");
+            }
     }
+    inputVisual ();
 });
 
-document.getElementById("parenthesisOpen").addEventListener("click", function (){
+document.getElementById("parenthesisClosed").addEventListener("click", function (){
     if (screen.innerHTML === ""){}
     else if (countParenthesis() > 0){
             saveVal();
             val.push(")");
             screen.innerHTML = "";
         }
+    inputVisual ();
 });
 
 function inputVisual (){
