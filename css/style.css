@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 30%;
+    height: 80%;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border: black 2px double;
+}
+
+button ,#screen{
+    background-color: white;
+    border: black 1px solid;
+}
+
+#rightBlock, #leftBlock, #topBlock{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+}
+
+#screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    font-size: 4rem;
+}
+
+#input, #input2 {
+    border: none;
+    width: 100%;
+    height: 10%;
+    align-self: flex-start;
+    overflow: hidden;
+}
+
+#input2{
+    font-size: 1rem;
+}
+
+#pScreen {
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#topBlock{
+    height: 24%;
+    width: 98%;
+}
+
+#topBlock button{
+    width: 20%;
+    height: 40%;
+    margin: 2%;
+}
+
+#leftBlock {
+    width: 75%;
+    height: 48%;
+}
+
+#leftBlock button{
+    width: 30%;
+    height: 20%;
+}
+
+#leftBlock #zero{
+    width: 61%;
+}
+
+#rightBlock{
+    width: 25%;
+    height: 48%;
+    flex-direction: column;
+}
+
+#more, #less {
+    height: 24%;
+    width: 80%;
+}
+
+#result {
+    height: 45%;
+    width: 80%;
+}
+
+#screen{
+    width: 98%;
+    height: 24%;
+}
+
+@media screen and (max-width: 850px){
+    #container {
+    width: 40%;
+    }
+}
+
+@media screen and (max-width: 650px){
+    #container {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    #container {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    #container {
+        width: 98%;
+        height: 98%;
+    }
+}

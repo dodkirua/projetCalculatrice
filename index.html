@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="screen">
+            <label for="input"  hidden></label>
+            <label for="input2" hidden></label>
+            <input type="text" id="input">
+            <input type="text" id="input2">
+            <div id="pScreen">
+                <p id="p"></p>
+            </div>
+        </div>
+        <div id="topBlock">
+            <button id="del" class="short">C</button>
+            <button id="me" class="short">Me</button>
+            <button id="parenthesisOpen" class="short">(</button>
+            <button id="parenthesisClosed" class="short">)</button>
+            <button id="negative" class="short">+/-</button>
+            <button id="modulo" class="short">%</button>
+            <button id="slash" class="short">/</button>
+            <button id="multiplication" class="short">*</button>
+
+        </div>
+        <div id="leftBlock">
+            <button id="seven">7</button>
+            <button id="eight">8</button>
+            <button id="nine">9</button>
+            <button id="four">4</button>
+            <button id="five">5</button>
+            <button id="six">6</button>
+            <button id="one">1</button>
+            <button id="two">2</button>
+            <button id="three">3</button>
+            <button id="zero">0</button>
+            <button id="dot">.</button>
+        </div>
+        <div id="rightBlock">
+            <button id="less">-</button>
+            <button id="more">+</button>
+            <button id="result">=</button>
+        </div>
+
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
