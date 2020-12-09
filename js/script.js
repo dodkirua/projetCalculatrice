@@ -4,9 +4,12 @@ let token = 0;
 let screen = document.getElementById("p");
 document.getElementById("input").value="";
 document.getElementById("input2").value="";
+
+
 /**
  * Fonction qui met dans la liste la valeur de l'ecran
  */
+
 function saveVal(){
     if(val[0] === null){
         val[0] = parseFloat(screen.innerHTML);
@@ -20,102 +23,19 @@ function saveVal(){
 /**
  * fonction qui résout les valeur dans la liste
  */
-function result(liste){
-    // recherche paranthese
-    let nbIteration = 0;
-    let pos;
-    for (let i = 0; i < liste.length ; i++){
-        let nbParenthesis = 0;
-        let listeTmp = [null];
-        nbIteration += 1;
-        switch ( liste[i]){
-            case "(":
-                nbParenthesis += 1;
-                if (nbParenthesis > 1){
-                    if (listeTmp[0] === null){
-                        listeTmp[0] = "(";
-                        break;
-                    }
-                    else {
-                        listeTmp.push("(");
-                        pos = i;
-                        break;
-                    }
-                }
-                else{
-                    break;
-                }
-            case ")":
-                nbParenthesis -=1;
-                if (nbParenthesis>2){
-                    listeTmp.push(")");
-                    break;
-                }
-                else {
-                    liste[i] = result(liste);
-                    liste.splice(pos , nbIteration-1 );
-                    break;
-                }
+function result() {
+    tmp = "";
 
-            default:
-                break;
-        }
+    for (let i = 0; i < val.length; i++) {
+        tmp += val[i];
     }
-    
-    // recherche de multiplication, div et modulo
-    for (let i = 0 ; i < liste.length ; i++){
-        switch (liste[i]){
-            case "*":
-             tmp = parseFloat(liste[i-1])*parseFloat(liste[i+1]);
-             liste[i+1] = tmp;
-             liste.splice((i-1),2);
-             break;
-            case "/":
-                if (liste[i+1] === 0){
-                    screen.innerHTML = "Div par 0 impossible";
-                }
-                else {
-                    tmp = parseFloat(liste[i-1])/parseFloat(liste[i+1]);
-                    liste[i+1] = tmp;
-                    liste.splice((i-1),2);
-                }
-               break;
-            case "%":
-                if (liste[i+1] === 0){
-                    screen.innerHTML = "Div par 0 impossible modulo impossible";
-                }
-                else {
-                    tmp = parseFloat(liste[i-1])%parseFloat(liste[i+1]);
-                    liste[i+1] = tmp;
-                    liste.splice((i-1),2);
-                }
-                break;
-                          
-            default:
-                break;
-        }
+    if (Number.isInteger(eval(tmp))) {
+        return eval(tmp)
+    } else {
+        return eval(tmp).toFixed(6);
     }
-
-    // addition et soustraction
-    for (let i = 0 ; i < liste.length ; i++){
-        switch (liste[i]){
-            case "+":
-                tmp = parseFloat(liste[i-1])+parseFloat(liste[i+1]);
-                liste[i+1] = tmp;
-                liste.splice((i-1),2);
-                break;
-            case "-":
-                tmp = parseFloat(liste[i-1])-parseFloat(liste[i+1]);
-                liste[i+1] = tmp;
-                liste.splice((i-1),2);
-                break;
-            default:
-                break;
-        }
-    }
-
-    return liste[0];
 }
+
 
 document.getElementById("zero").addEventListener("click", function(){
     if (token === 0){
@@ -297,7 +217,7 @@ document.getElementById("negative").addEventListener("click", function (){
 document.getElementById("result").addEventListener("click", function (){
     saveVal();
     inputVisual ();
-    tmp = (result(val).toFixed(6));
+    tmp = result();
     screen.innerHTML = tmp;
     val = [null];
     token = 1;
@@ -320,7 +240,7 @@ document.getElementById("parenthesisClosed").addEventListener("click", function 
     if (screen.innerHTML === ""){}
     else if (countParenthesis() > 0){
             saveVal();
-            val.push(")");
+        val.push(")");
             screen.innerHTML = "";
         }
     inputVisual ();
